@@ -48,4 +48,4 @@ package-lock.json
 package.json
 
 # Cutout files
-images/Cutout Files
+data/dataset
