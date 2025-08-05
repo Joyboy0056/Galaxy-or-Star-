@@ -1,10 +1,10 @@
 import os
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
-from tensorflow.keras.callbacks import EarlyStopping
+from keras.preprocessing.image import ImageDataGenerator
+from keras.models import Sequential
+from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from keras.callbacks import EarlyStopping
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix
@@ -12,7 +12,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 # **Preparazione dei dati**
 
 # Directory delle immagini
-dataset_dir = 'Cutout Files'
+dataset_dir = "images/Cutout Files"
 
 # Dimensioni delle immagini
 img_height, img_width = 150, 150
@@ -104,32 +104,36 @@ plt.show()
 
 # **Previsione su nuove immagini**
 
-from tensorflow.keras.preprocessing import image
+from keras.preprocessing import image
 
-# Carica un'immagine
-img_path = 'JADES-GS-z14-0_bbc.jpg'
-img = image.load_img(img_path, target_size=(img_height, img_width))
-img_array = image.img_to_array(img)
-img_array = np.expand_dims(img_array, axis=0) / 255.0
+def main():
+    # Carica un'immagine
+    img_path = 'images/JADES-GS-z14-0_bbc.jpg'
+    img = image.load_img(img_path, target_size=(img_height, img_width))
+    img_array = image.img_to_array(img)
+    img_array = np.expand_dims(img_array, axis=0) / 255.0
 
-# Previsione
-prediction = model.predict(img_array)
-predicted_class = np.argmax(prediction, axis=1)
-class_labels = list(train_generator.class_indices.keys())
-print(f'Predicted Class: {class_labels[predicted_class[0]]}')
+    # Previsione
+    prediction = model.predict(img_array)
+    predicted_class = np.argmax(prediction, axis=1)
+    class_labels = list(train_generator.class_indices.keys())
+    print(f'Predicted Class: {class_labels[predicted_class[0]]}')
 
 
-# Carica un'immagine (molto colorata)
-img_path = 'JADES-GS-z14-0.jpg'
-img = image.load_img(img_path, target_size=(img_height, img_width))
-img_array = image.img_to_array(img)
-img_array = np.expand_dims(img_array, axis=0) / 255.0
+    # Carica un'immagine (molto colorata)
+    img_path = 'images/JADES-GS-z14-0.jpg'
+    img = image.load_img(img_path, target_size=(img_height, img_width))
+    img_array = image.img_to_array(img)
+    img_array = np.expand_dims(img_array, axis=0) / 255.0
 
-# Previsione
-prediction = model.predict(img_array)
-predicted_class = np.argmax(prediction, axis=1)
-class_labels = list(train_generator.class_indices.keys())
-print(f'Predicted Class: {class_labels[predicted_class[0]]}')
+    # Previsione
+    prediction = model.predict(img_array)
+    predicted_class = np.argmax(prediction, axis=1)
+    class_labels = list(train_generator.class_indices.keys())
+    print(f'Predicted Class: {class_labels[predicted_class[0]]}')
 
+
+if __name__=='main':
+    main()
 
 

@@ -1,0 +1,51 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env/
+.env.local/
+ENV/
+env/
+.env
+.venv
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+*.egg
+
+# JetBrains/PyCharm IDE files
+.idea/
+
+# System files
+Thumbs.db
+
+# Optional: logs, local config files
+*.log
+*.sqlite3
+
+# Node modules
+node_modules/
+
+# Local configurations
+config.json
+package-lock.json
+package.json
+
+# Cutout files
+images/Cutout Files
